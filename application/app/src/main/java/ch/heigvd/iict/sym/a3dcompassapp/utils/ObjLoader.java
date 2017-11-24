@@ -1,4 +1,4 @@
-package ch.heigvd.iict.sym.a3dcompassapp.objects;
+package ch.heigvd.iict.sym.a3dcompassapp.utils;
 
 import android.util.Log;
 

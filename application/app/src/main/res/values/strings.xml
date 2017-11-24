@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">Labo3 - 3D Compass template</string>
+    <string name="app_name">Labo03 - Données environnement</string>
+    <string name="main_title">Choose an activity</string>
+    <string name="launch_NFC">Launch NFC</string>
+    <string name="launch_codesBarres">Launch codes barres</string>
+    <string name="launch_beacon">Launch beacon</string>
+    <string name="launch_capteurs">Launch capteurs</string>
 </resources>
