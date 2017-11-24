@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import ch.heigvd.iict.sym.a3dcompassapp.capteurs.CompassActivity;
+import ch.heigvd.iict.sym.a3dcompassapp.codesBarres.CodesBarresActivity;
 
 /**
  * Main activity of the application, offer 4 buttons to the user to allow him to choose the
@@ -48,7 +49,8 @@ public class MainActivity extends AppCompatActivity {
         buttonCodesBarres.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(MainActivity.this, CodesBarresActivity.class);
+                startActivity(intent);
             }
         });
 
