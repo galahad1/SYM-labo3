@@ -1,4 +1,4 @@
-package ch.heigvd.iict.sym.a3dcompassapp.codesBarres;
+package ch.heigvd.iict.sym.a3dcompassapp.BarCodes;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -19,7 +19,7 @@ import ch.heigvd.iict.sym.a3dcompassapp.R;
  * when he click on the scan button
  * @author Tano Iannetta, Wojciech Myszkorowski and Lara Chauffoureaux
  */
-public class CodesBarresActivity extends AppCompatActivity {
+public class BarCodesActivity extends AppCompatActivity {
 
     private EditText result;
     private Button scannerButton;
@@ -27,7 +27,7 @@ public class CodesBarresActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_codesbarres);
+        setContentView(R.layout.activity_barcodes);
 
         //Recuperate Ui things
         this.scannerButton = (Button) findViewById(R.id.scannerButton);
@@ -38,7 +38,7 @@ public class CodesBarresActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // launch scan with the Barcode Scanner application
-                IntentIntegrator integrator = new IntentIntegrator(CodesBarresActivity.this);
+                IntentIntegrator integrator = new IntentIntegrator(BarCodesActivity.this);
                 integrator.initiateScan();
             }
         });
