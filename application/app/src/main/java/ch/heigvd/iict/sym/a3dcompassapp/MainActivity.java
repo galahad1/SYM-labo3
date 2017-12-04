@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import ch.heigvd.iict.sym.a3dcompassapp.capteurs.CompassActivity;
-import ch.heigvd.iict.sym.a3dcompassapp.BarCodes.BarCodesActivity;
+import ch.heigvd.iict.sym.a3dcompassapp.barCodes.BarCodesActivity;
 
 /**
  * Main activity of the application, offer 4 buttons to the user to allow him to choose the
