@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import ch.heigvd.iict.sym.a3dcompassapp.beacon.BeaconActivity;
 import ch.heigvd.iict.sym.a3dcompassapp.capteurs.CompassActivity;
 import ch.heigvd.iict.sym.a3dcompassapp.barCodes.BarCodesActivity;
 
@@ -58,7 +59,8 @@ public class MainActivity extends AppCompatActivity {
         buttonBeacon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(MainActivity.this, BeaconActivity.class);
+                startActivity(intent);
             }
         });
 
