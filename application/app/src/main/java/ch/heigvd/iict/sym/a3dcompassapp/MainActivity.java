@@ -6,8 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import ch.heigvd.iict.sym.a3dcompassapp.beacon.BeaconActivity;
 import ch.heigvd.iict.sym.a3dcompassapp.capteurs.CompassActivity;
+<<<<<<< HEAD
 import ch.heigvd.iict.sym.a3dcompassapp.BarCodes.BarCodeActivity;
+=======
+import ch.heigvd.iict.sym.a3dcompassapp.barCodes.BarCodesActivity;
+>>>>>>> 4490dace78f3b9ee15b68066d074c3851a15a10b
 
 /**
  * Main activity of the application, offer 4 buttons to the user to allow him to choose the
@@ -58,7 +63,8 @@ public class MainActivity extends AppCompatActivity {
         buttonBeacon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(MainActivity.this, BeaconActivity.class);
+                startActivity(intent);
             }
         });
 
