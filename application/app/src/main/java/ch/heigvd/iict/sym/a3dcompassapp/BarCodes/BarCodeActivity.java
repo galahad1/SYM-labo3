@@ -19,7 +19,7 @@ import ch.heigvd.iict.sym.a3dcompassapp.R;
  * when he click on the scan button
  * @author Tano Iannetta, Wojciech Myszkorowski and Lara Chauffoureaux
  */
-public class BarCodesActivity extends AppCompatActivity {
+public class BarCodeActivity extends AppCompatActivity {
 
     private EditText result;
     private Button scannerButton;
@@ -38,7 +38,7 @@ public class BarCodesActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // launch scan with the Barcode Scanner application
-                IntentIntegrator integrator = new IntentIntegrator(BarCodesActivity.this);
+                IntentIntegrator integrator = new IntentIntegrator(BarCodeActivity.this);
                 integrator.initiateScan();
             }
         });
