@@ -1,0 +1,189 @@
+\documentclass[12pt]{article}
+
+%%%  PACKAGES
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}            
+\usepackage[frenchb]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{array}              % for better arrays (eg matrices) in maths
+\usepackage{subfig}             % make it possible to include more than one captioned figure/table in a single float
+\usepackage{paralist}                % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{subfig}                   % include more than one captioned figure/table in a single float
+\usepackage{graphicx}               % Inclusion d'images-> \noindent\includegraphics[width=400px]{name}
+\graphicspath{{images/}}           % le chemin ou aller chercher les graphics
+\usepackage{listings}               % package for code listing
+\usepackage{color}                   % package to use color
+\usepackage{hyperref}           % pour les liens cliquables (url, etc....)
+\usepackage{arydshln}
+%%%  PACKAGES
+\usepackage{footnote}
+\usepackage{enumitem}
+
+\setlength\parindent{0pt}         % Taille de l'indentation
+\setcounter{tocdepth}{3}
+
+%%%  PAGE DIMENSIONS
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+\geometry{a4paper, left=20mm, right=20mm, top=25mm, bottom=20mm}                
+\setlength{\parskip}{0.5em}                    % Espace entre les paragraphes
+
+%%% USER COLORS
+\definecolor{darkGreen}{RGB}{0,0.6,0}
+\definecolor{gray}{RGB}{0.5,0.5,0.5}
+\definecolor{mauve}{RGB}{0.58,0,0.82}
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+\definecolor{red}{rgb}{1,0,0}
+\definecolor{green}{rgb}{0,1,0}
+\definecolor{porange}{rgb}{1,0.5,0}
+
+
+%%% CODE STYLE (\lstinputlisting{stcFile.cpp} ou \begin{lstlisting} et \end{lstlisting}
+
+%%% JAVA STYLE
+\lstdefinestyle{Java}
+{
+  language=Java, 
+  inputencoding=utf8,
+  frame=single,
+  showspaces=false,
+  showtabs=false,
+  breaklines=true,
+  showstringspaces=false,
+  breakatwhitespace=true,
+  commentstyle=\color{pgreen},
+  keywordstyle=\color{pblue},
+  stringstyle=\color{pred},
+  basicstyle=\fontsize{9}{11}\ttfamily,
+  numbers=left,
+  numbersep=5px,
+  numberstyle=\tiny\color{pgrey},
+  stepnumber=1,
+  tabsize=2
+}
+
+\lstdefinestyle{Bash}
+{
+  language=Bash,
+  inputencoding=utf8,
+  frame=single,
+  showspaces=false,
+  showtabs=false,
+  breaklines=true,
+  showstringspaces=false,
+  breakatwhitespace=true,
+  commentstyle=\color{pgreen},
+  keywordstyle=\color{pblue},
+  stringstyle=\color{pred},
+  basicstyle=\fontsize{10}{11}\ttfamily,
+  stepnumber=1,
+  tabsize=2
+}
+
+%%% XML Style
+\lstdefinestyle{XML}
+{ 
+  inputencoding=utf8,
+  language=XML,
+  frame=lines,
+  showspaces=false,
+  showtabs=false,
+  breaklines=true,
+  showstringspaces=false,
+  breakatwhitespace=true,
+  commentstyle=\color{pgreen},
+  keywordstyle=\color{pblue},
+  stringstyle=\color{pred},
+  basicstyle=\fontsize{9}{11}\ttfamily,
+  numbers=left,
+  numbersep=5px,
+  numberstyle=\tiny\color{pgrey},
+  stepnumber=1,
+  tabsize=2
+}
+
+%%% JSON Style
+\lstdefinestyle{JSON}
+{
+  inputencoding=utf8,
+  frame=lines,
+  showspaces=false,
+  showtabs=false,
+  breaklines=true,
+  showstringspaces=false,
+  breakatwhitespace=true,
+  comment=[l]{:},
+  commentstyle=\color{black},
+  keywordstyle=\color{pblue},
+  string=[s]{"}{"},
+  stringstyle=\color{pblue},
+  basicstyle=\fontsize{9}{11}\ttfamily,
+  numbers=left,
+  numbersep=5px,
+  numberstyle=\tiny\color{pgrey},
+  stepnumber=1,
+  tabsize=2
+}
+
+% Setup pour les liens
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={My title},    % title
+    pdfauthor={Author},     % author
+    pdfsubject={Subject},   % subject of the document
+    pdfcreator={Creator},   % creator of the document
+    pdfproducer={Producer}, % producer of the document
+    pdfkeywords={keyword1, key2, key3}, % list of keywords
+    pdfnewwindow=true,      % links in new PDF window
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=black,          % color of internal links (change box color with linkbordercolor)
+    citecolor=green,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=blue           % color of external links
+}    
+
+\lstset{escapeinside={<@}{@>}}           
+
+%%%  HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty, plain , fancy
+\renewcommand{\headrulewidth}{1pt} % customise the layout...
+\renewcommand{\footrulewidth}{1pt}
+\lhead{\includegraphics[width=40px]{logoheig2}}\chead{}\rhead{SYM - Laboratoire 2}
+\lfoot{L. Chauffoureaux, T. Iannetta, W. Myszkorowski}\cfoot{}\rfoot{\thepage}
+
+%%% TITLE
+\title{\includegraphics[width=200px]{title}\\
+  \vspace{40 mm}
+  \huge{Systèmes mobiles -- Laboratoire no. 3}
+\vspace{20 mm}
+}
+\author{Lara Chauffoureaux, Tano Iannetta, Wojciech Myszkorowski}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\clearpage
+
+Tout le code source de l'application est joint à ce rapport. Celui-ci est également disponible sur GitHub via le lien suivant : 
+
+\url{https://github.com/galahad1/SYM-labo3}
+
+\section*{Question NFC}
+
+\section*{Question codes barre}
+
+\section*{Question beacon}
+
+\section*{Question capteur}
+
+\end{document}
