@@ -1,4 +1,4 @@
-package ch.heigvd.iict.sym.a3dcompassapp.BarCodes;
+package ch.heigvd.iict.sym.a3dcompassapp.barCodes;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

@@ -9,7 +9,7 @@ import android.widget.Button;
 import ch.heigvd.iict.sym.a3dcompassapp.NFC.NFCActivity;
 import ch.heigvd.iict.sym.a3dcompassapp.beacon.BeaconActivity;
 import ch.heigvd.iict.sym.a3dcompassapp.capteurs.CompassActivity;
-import ch.heigvd.iict.sym.a3dcompassapp.BarCodes.BarCodeActivity;
+import ch.heigvd.iict.sym.a3dcompassapp.barCodes.BarCodeActivity;
 
 /**
  * Main activity of the application, offer 4 buttons to the user to allow him to choose the
