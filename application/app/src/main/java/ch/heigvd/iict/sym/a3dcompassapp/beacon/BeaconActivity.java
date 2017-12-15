@@ -36,10 +36,10 @@ public class BeaconActivity extends AppCompatActivity implements BeaconConsumer 
     // For logging purposes
     private static final String TAG = BeaconActivity.class.getSimpleName();
 
-    private ListView listView;
-    private List<String> beacons = new ArrayList<>();
-    private ArrayAdapter<String> adapter;
-    private BeaconManager beaconManager;
+    private ListView listView;                          // GUI element
+    private List<String> beacons = new ArrayList<>();   // List of beacons information
+    private ArrayAdapter<String> adapter;               // Adapter for list view
+    private BeaconManager beaconManager;                // Beacon manager entity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
