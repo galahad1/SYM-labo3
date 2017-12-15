@@ -61,6 +61,12 @@ public class BeaconActivity extends AppCompatActivity implements BeaconConsumer 
     }
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        beaconManager.unbind(this);
+    }
+
+    @Override
     public void onBeaconServiceConnect() {
         beaconManager.addRangeNotifier(new RangeNotifier() {
             @Override
@@ -71,8 +77,9 @@ public class BeaconActivity extends AppCompatActivity implements BeaconConsumer 
 
                 // For each beacon, add it in the list
                 for(Beacon beacon : collection) {
-                    beacons.add("Beacon's UUID: " + beacon.getId1() + "\n" +
-                        "Distance: " + beacon.getDistance());
+                    beacons.add("Beacon's major number: " + beacon.getId2() + "\n" +
+                                "Beacon's minor number: " + beacon.getId3() + "\n" +
+                                "RSSI: " + beacon.getRssi());
                 }
 
                 // Update of the view by UIThread
