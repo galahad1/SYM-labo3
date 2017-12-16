@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,24 +25,52 @@ import java.util.Arrays;
 
 import ch.heigvd.iict.sym.a3dcompassapp.R;
 
+import static android.R.attr.mode;
+
+
+/**
+ * This class is the mother class that allows you to read and process
+ * NFC technology. It allows you to read the tag inside the NFC.
+ * Modified by Tano Iannetta, Lara Chauffoureaux, Wojciech Myszkorowski
+ */
 public class NFCActivity extends AppCompatActivity {
 
     private static final String validPassword = "tata";
     public static final String MIME_TEXT_PLAIN = "text/plain";
     public static final String TAG = "NFC_TASK";
+    public static final String NFC = "test";
+    private Switch switch1 = null;
     private EditText password = null;
     private TextView viewNFC = null;
     private Button Signin = null;
     private NfcAdapter mNfcAdapter;
+    private boolean versionAuth = false;
+
+    protected void setResult(String text) {
+        viewNFC.setText(text);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nfc);
+        this.switch1 = (Switch) findViewById(R.id.switch1);
         this.password = (EditText) findViewById(R.id.passwdtext);
         this.Signin = (Button) findViewById(R.id.buttonLog);
         this.viewNFC = (TextView) findViewById(R.id.textnfc);
         this.mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
+        // if we click on the swtich then we change mode so we put a negation to the variable
+        switch1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                versionAuth = !versionAuth;
+                if (versionAuth) {
+                    Toast.makeText(getApplicationContext(), "mode AND", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "mode OR", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         if (mNfcAdapter == null) {
             // Stop here, we definitely need NFC
@@ -56,31 +85,29 @@ public class NFCActivity extends AppCompatActivity {
         }
 
         handleIntent(getIntent());
-
-       // viewNFC.setText();
-
+        //login action and test authorization
         Signin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 String passwd = password.getText().toString();
+                String textNFC = viewNFC.getText().toString();
 
-                if (passwd.equals("")) {
-                    //Log.w(TAG, "isValid(mail, passwd) - mail and passwd cannot be null !");
-                    //Toast.makeText(NFCActivity.this, getResources().getString(R.string.emptyfield);
-                } else if(passwd.equals(validPassword) && viewNFC.getText().equals("TEST")) {
+                //authentification OR
+                if ((textNFC.equals(NFC) || passwd.equals(validPassword)) && !versionAuth) {
+                    boolean val = (textNFC.equals(NFC) || passwd.equals(validPassword));
                     Intent intent = new Intent(NFCActivity.this, TIMEActivity.class);
-                    startActivity(intent);
-                } else if(passwd.equals(validPassword)) {
-
+                    NFCActivity.this.startActivity(intent);
+                    //authentification AND
+                } else if ((textNFC.equals(NFC) && passwd.equals(validPassword)) && versionAuth) {
+                    Intent intent = new Intent(NFCActivity.this, TIMEActivity.class);
+                    NFCActivity.this.startActivity(intent);
                 } else {
                     //set a message that password is wrong or wrong nfc
+                    Toast.makeText(getApplicationContext(), "Login failed", Toast.LENGTH_SHORT).show();
                 }
 
             }
         });
-    }
-    public void  onNewIntent() {
-
     }
 
     public static void setupForegroundDispatch(final Activity activity, NfcAdapter adapter) {
@@ -218,8 +245,8 @@ public class NFCActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             if (result != null) {
-                //affiche le tag NFC
-                viewNFC.setText(result);
+                //display the nfc tag
+                setResult(result);
             }
         }
     }
