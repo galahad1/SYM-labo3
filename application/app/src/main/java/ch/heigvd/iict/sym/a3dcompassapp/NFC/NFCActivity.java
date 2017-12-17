@@ -44,7 +44,7 @@ public class NFCActivity extends AppCompatActivity {
     private TextView viewNFC = null;
     private Button Signin = null;
     private NfcAdapter mNfcAdapter;
-    private boolean versionAuth = false;
+    private boolean versionAuth = true;
 
     protected void setResult(String text) {
         viewNFC.setText(text);
@@ -54,20 +54,20 @@ public class NFCActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nfc);
-        this.switch1 = (Switch) findViewById(R.id.switch1);
-        this.password = (EditText) findViewById(R.id.passwdtext);
-        this.Signin = (Button) findViewById(R.id.buttonLog);
-        this.viewNFC = (TextView) findViewById(R.id.textnfc);
-        this.mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
+        switch1 = (Switch) findViewById(R.id.switch1);
+        password = (EditText) findViewById(R.id.passwdtext);
+        Signin = (Button) findViewById(R.id.buttonLog);
+        viewNFC = (TextView) findViewById(R.id.textnfc);
+        mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
         // if we click on the swtich then we change mode so we put a negation to the variable
         switch1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 versionAuth = !versionAuth;
                 if (versionAuth) {
-                    Toast.makeText(getApplicationContext(), "mode AND", Toast.LENGTH_SHORT).show();
-                } else {
                     Toast.makeText(getApplicationContext(), "mode OR", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "mode AND", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -92,13 +92,13 @@ public class NFCActivity extends AppCompatActivity {
                 String passwd = password.getText().toString();
                 String textNFC = viewNFC.getText().toString();
 
-                //authentification OR
-                if ((textNFC.equals(NFC) || passwd.equals(validPassword)) && !versionAuth) {
-                    boolean val = (textNFC.equals(NFC) || passwd.equals(validPassword));
+                //authentification and
+                if ( !versionAuth &&( passwd.equals(validPassword) && textNFC.equals(NFC) )) {
+                    boolean val = (textNFC.equals(NFC) && passwd.equals(validPassword));
                     Intent intent = new Intent(NFCActivity.this, TIMEActivity.class);
                     NFCActivity.this.startActivity(intent);
-                    //authentification AND
-                } else if ((textNFC.equals(NFC) && passwd.equals(validPassword)) && versionAuth) {
+                    //authentification or
+                } else if (versionAuth && (passwd.equals(validPassword) || textNFC.equals(NFC)) ) {
                     Intent intent = new Intent(NFCActivity.this, TIMEActivity.class);
                     NFCActivity.this.startActivity(intent);
                 } else {
