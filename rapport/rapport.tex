@@ -182,8 +182,83 @@ Tout le code source de l'application est joint à ce rapport. Celui-ci est égal
 
 \section*{Question codes barre}
 
+\textbf{Utilisation professionnelle (Authentification, droits d'accès, clés de chiffrage):}
+\medskip
+
+Dans ce cadre, la technologie NFC est à préférer.
+
+Certaines puces NFC permettent l'échange d'informations chiffrées, rendant l'utilisation du NFC préférable dans l'optique d'une authentification.
+La technologie NFC est aussi plus ergonomique, ce qui est crucial dans un environnement où l'authentification est fréquente et où la rapidité est un facteur important. \\
+
+\textbf{Utilisation grand public (Billetterie, contrôle d'accès, e-paiement):} \medskip
+
+Pour le grand public il est préférable d'utiliser les codes barres. En effet, pour le NFC, certains mobiles (iPhone) n'utilisent pas cette technologie. C'est donc une grande partie des utilisateurs potentiels qui ne pourront pas profiter de l'application. Il est donc plus avisé d'utiliser les codes barres dont la technologie est plus répandue parmi les mobiles.\\
+
+\textbf{Utilisation ludique (Preuves d'achat, publicité, etc.):}
+\medskip
+
+Il est plus facile de déployer des codes barres, par exemple sur des affiches pour de la publicité que des puces NFC. Le code  barre sera aussi plus voyant, et l'utilisateur saura directement à quoi cela correspond.
+
+Comme dit plus haut, tous les utilisateur ne disposent pas du NFC.
+Une preuve d'achat se doit être utilisable par le plus d'utilisateurs possible. Et donc, il est important d'utiliser les codes barres plutôt que le NFC. \\
+
+\textbf{Utilisation de un cadre financier (Coûts pour le déploiement de la technologie, possibilités de recyclage, etc.):}
+\medskip
+
+L'ajout d'un code barres à des supports est bon marché. Il nécessite peut-être un travail de conception supplémentaire mais l'impression a un coût minime.
+A contrario, intégrer la technologie NFC peut être coûteuse étant donné les coûts de production et les efforts nécessaires pour intégrer une puce NFC.
+
+D'un point de vue recyclage, le NFC est re-programmable pour une autre utilisation. Le code barre ne l'est pas!
+
 \section*{Question beacon}
 
-\section*{Question capteur}
+Pour répondre à cette question, nous avons choisi d'analyser 3 cas d'utilisations différents.
+
+\textbf{Les e-paiements}\label{epaiement}
+\medskip
+
+Dans le cas du e-paiement, chacune des deux solutions doit être analysée avec soin:
+
+\begin{enumerate}
+\item[•] Les beacons ne sont en fait que des trames bluetooth diffusées en broadcast de manière régulière. La communication ne se fait que dans un sens et donc toute authentification, établissement de connexion, ou dialogue entre le mobile du client et la balise beacon est tout simplement impossible.
+
+Il est donc impossible de vraiment payer avec des beacons. Une alternative imaginable est d'envoyer au client un lien vers une application propre à l'entreprise qui elle permettra le paiement. 
+
+\item[•] A contrario, le NFC permet d'établir une connexion entre un mobile et un tag NFC. Cette connexion, une fois suffisamment sécurisée et authentifiée, peut permettre la réalisation d'un paiement sans contact. 
+
+Aujourd'hui en Suisse, les NFC sont utilisés dans la plupart des cartes de banque afin de permettre le paiement sans contact.
+\end{enumerate}
+
+Donc dans le cas des e-paiement, les beacons ne représentent pas une alternative viable au NFC. Leur principe de fonctionnement en est la cause, une amélioration et/ou un changement de ce paradigme semblent donc très peu probables. \\
+
+\textbf{Contrôle d'accès}
+\medskip
+
+Aujourd'hui, la plupart des grandes entreprises disposent d'un système pour contrôler l'accès à leurs bâtiments. Dans ce cas la comparaison entre NFC et beacons revient à peu près au même que dans le cas des e-paiement traité précédemment.
+
+\begin{itemize}
+\item[•] Avec les beacons, une authentification est impossible. La seule possibilité est donc que l'utilisateur reçoive un beacon à l'approche d'une porte. Ce beacon devrait contenir un lien vers une application permettant à l'utilisateur de s'authentifier pour la porte donnée.
+
+\item[•] Avec le NFC par contre, une authentification directe entre la carte et la borne est possible. Pas besoin donc de manipulation supplémentaire ou autre.
+\end{itemize}
+
+Comme précédemment, dans ce scénario d'utilisation les beacons ne représentent pas une alternative valable au NFC. \\
+
+\textbf{Horaires de bus}
+\medskip
+
+Voilà un cas d'utilisation permettant d'illustrer un cas où les beacons proposent une réelle alternative aux méthodes existante : 
+
+Aux arrêts de bus ou devant des oeuvres au musée, il serait possible de placer des balises émettant des beacons. Ceux-ci permettraient à un utilisateur ou à un visiteur de découvrir un lien sur son téléphone en approchant du lieu concerné. Dans le cas d'un arrêt de bus, on peut imaginer que l'usager reçoit un lien vers le site internet où se trouvent les horaires applicable pour cet arrêt. Pareil au musée, le lien dirigerait directement l'intéressé vers une page détaillant l'oeuvre concernée.
+
+Dans ce cas, les beacons sont une alternative très intéressante car ils permettent une diffusion large de l'information sans que l'utilisateur ait besoin d'installer une application spécifique sur son téléphone. \\\\
+
+Pour résumé, les beacons sont très à la mode actuellement mais leurs cas d'utilisation demandent des conditions très spécifiques. Contrairement au NFC ils ne permettent aucun dialogue et donc aucune authentification entre les deux acteurs. De plus, les balises beacons coutent sensiblement plus cher que les tags NFC (environ 1 CHF par NFC tag contre 20 CHF pour une bonne balise beacon \footnote{Ces prix dépendent bien sûr de la qualité voulue et de la quantité commandée}). 
+Pour conclure, nous dirions donc qu'à part dans certains cas très spécifiques l'utilisation des beacons n'est pas une alternative aux autres technologies existantes.
+\section*{Question capteurs}
+
+Notre flèche tremble car les capteurs sont "trop" sensibles. En effet, le bruit n'est pas ignoré, il en résulte donc un faible tremblement dû aux perturbations environnementales.
+
+Pour remédier à ce problème on pourrait, avant d'afficher la flèche, ne pas considérer les variations trop faibles. Il serait possible de faire un régulateur afin d'assouplir le résultat et donc d'ignorer le bruit.
 
 \end{document}

@@ -6,5 +6,6 @@
     <string name="launch_beacon">Launch beacon</string>
     <string name="launch_capteurs">Launch capteurs</string>
     <string name="title_codesbarres">Qr codes scanner</string>
+    <string name="title_beacon">Beacon detector</string>
     <string name="result">Scan Result</string>
 </resources>

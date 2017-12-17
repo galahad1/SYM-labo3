@@ -22,7 +22,7 @@
         </activity>
         <activity android:name=".capteurs.CompassActivity"/>
         <activity android:name=".beacon.BeaconActivity"/>
-        <activity android:name=".BarCodes.BarCodeActivity"/>
+        <activity android:name=".barCodes.BarCodeActivity"/>
         <activity android:name=".NFC.NFCActivity"/>
         <activity android:name=".NFC.TIMEActivity"/>
     </application>
