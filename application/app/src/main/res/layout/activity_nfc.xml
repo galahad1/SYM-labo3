@@ -16,8 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPassword"
-        android:text="mot" />
+        android:inputType="textPassword" />
 
     <TextView
         android:id="@+id/textnfc"
@@ -25,6 +24,13 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.06"
         android:text="TextView" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.06"
+        android:text="Switch" />
 
     <Button
         android:id="@+id/buttonLog"

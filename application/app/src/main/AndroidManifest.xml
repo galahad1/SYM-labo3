@@ -3,7 +3,7 @@
           package="ch.heigvd.iict.sym.a3dcompassapp">
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.NFC" />
 
     <application
         android:allowBackup="true"
@@ -22,8 +22,9 @@
         </activity>
         <activity android:name=".capteurs.CompassActivity"/>
         <activity android:name=".beacon.BeaconActivity"/>
-        <activity android:name=".barCodes.BarCodeActivity"/>
+        <activity android:name=".BarCodes.BarCodeActivity"/>
         <activity android:name=".NFC.NFCActivity"/>
+        <activity android:name=".NFC.TIMEActivity"/>
     </application>
 
 </manifest>
