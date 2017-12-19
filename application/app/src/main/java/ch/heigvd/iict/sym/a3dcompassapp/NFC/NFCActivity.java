@@ -35,7 +35,7 @@ import static android.R.attr.mode;
  */
 public class NFCActivity extends AppCompatActivity {
 
-    private static final String validPassword = "tata";
+    private static final String validPassword = "toto";
     public static final String MIME_TEXT_PLAIN = "text/plain";
     public static final String TAG = "NFC_TASK";
     public static final String NFC = "test";
@@ -73,7 +73,6 @@ public class NFCActivity extends AppCompatActivity {
         });
 
         if (mNfcAdapter == null) {
-            // Stop here, we definitely need NFC
             Toast.makeText(this, "This device doesn't support NFC.", Toast.LENGTH_LONG).show();
             finish();
             return;
@@ -81,7 +80,7 @@ public class NFCActivity extends AppCompatActivity {
         if (!mNfcAdapter.isEnabled()) {
             viewNFC.setText("NFC is disabled.");
         } else {
-            viewNFC.setText("Waiting on NFC tag");
+            viewNFC.setText("Waiting on nfc tag");
         }
 
         handleIntent(getIntent());

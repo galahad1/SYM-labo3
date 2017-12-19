@@ -32,9 +32,8 @@ public class TIMEActivity extends NFCActivity{
         setContentView(R.layout.activity_time);
         this.view = (TextView) findViewById(R.id.textNFC);
         this.textAuthenticate = (TextView) findViewById(R.id.textLevel);
-        level = AUTHENTI_MAX;
         //timer starts when launched and decrease every 2 seconds
-        TimerTask timerTask = new MyTimerTask();
+        TimerTask timerTask = new UpdateText();
         Timer timer = new Timer(true);
         timer.schedule(timerTask, 0, 2000);
     }
@@ -45,7 +44,7 @@ public class TIMEActivity extends NFCActivity{
             level = AUTHENTI_MAX;
         }
     }
-    private class MyTimerTask extends TimerTask {
+    private class UpdateText extends TimerTask {
         @Override
         public void run() {
             runOnUiThread(new Runnable() {
