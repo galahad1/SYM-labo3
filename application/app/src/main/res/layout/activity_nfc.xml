@@ -8,8 +8,11 @@
         android:id="@+id/welcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:layout_weight="0.06"
-        android:text="Welcome to NFC authentification" />
+        android:text="NFC authentification"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textSize="30sp"/>
 
     <EditText
         android:id="@+id/passwdtext"
