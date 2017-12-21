@@ -33,9 +33,6 @@ public class TIMEActivity extends NFCActivity{
         this.view = (TextView) findViewById(R.id.textNFC);
         this.textAuthenticate = (TextView) findViewById(R.id.textLevel);
         //timer starts when launched and decrease every 2 seconds
-        //TimerTask timerTask = new UpdateText();
-        //Timer timer = new Timer(true);
-        //timer.schedule(timerTask, 0, 2000);
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
@@ -65,24 +62,4 @@ public class TIMEActivity extends NFCActivity{
             level = AUTHENTI_MAX;
         }
     }
-    /*private class UpdateText extends TimerTask {
-        @Override
-        public void run() {
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    level--;
-                    //if you come under this level you come back to first login page
-                    if (level < AUTHENTI_LOW) {finish();
-                        // need to authenticate with nfc
-                    } else if (level < AUTHENTI_MEDIUM) {
-                        textAuthenticate.setText("Level of Authentification medium \n you will lose access");
-                    } else {
-                        textAuthenticate.setText("Level of Authentification maximum");
-                    }
-                }
-            });
-        }
-    }*/
-
 }
