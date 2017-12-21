@@ -59,7 +59,9 @@ public class NFCActivity extends AppCompatActivity {
         Signin = (Button) findViewById(R.id.buttonLog);
         viewNFC = (TextView) findViewById(R.id.textnfc);
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
+
         // if we click on the swtich then we change mode so we put a negation to the variable
+        //http://abhiandroid.com/ui/switch
         switch1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -95,11 +97,11 @@ public class NFCActivity extends AppCompatActivity {
                 if ( !versionAuth &&( passwd.equals(validPassword) && textNFC.equals(NFC) )) {
                     boolean val = (textNFC.equals(NFC) && passwd.equals(validPassword));
                     Intent intent = new Intent(NFCActivity.this, TIMEActivity.class);
-                    NFCActivity.this.startActivity(intent);
+                    startActivity(intent);
                     //authentification or
                 } else if (versionAuth && (passwd.equals(validPassword) || textNFC.equals(NFC)) ) {
                     Intent intent = new Intent(NFCActivity.this, TIMEActivity.class);
-                    NFCActivity.this.startActivity(intent);
+                    startActivity(intent);
                 } else {
                     //set a message that password is wrong or wrong nfc
                     Toast.makeText(getApplicationContext(), "Login failed", Toast.LENGTH_SHORT).show();
@@ -214,17 +216,16 @@ public class NFCActivity extends AppCompatActivity {
 
             return null;
         }
-
-        private String readText(NdefRecord record) throws UnsupportedEncodingException {
         /*
-         * See NFC forum specification for "Text Record Type Definition" at 3.2.1
-         *
-         * http://www.nfc-forum.org/specs/
-         *
-         * bit_7 defines encoding
-         * bit_6 reserved for future use, must be 0
-         * bit_5..0 length of IANA language code
-         */
+        * See NFC forum specification for "Text Record Type Definition" at 3.2.1
+        *
+        * http://www.nfc-forum.org/specs/
+        *
+        * bit_7 defines encoding
+        * bit_6 reserved for future use, must be 0
+        * bit_5..0 length of IANA language code
+        */
+        private String readText(NdefRecord record) throws UnsupportedEncodingException {
 
             byte[] payload = record.getPayload();
 
@@ -235,8 +236,6 @@ public class NFCActivity extends AppCompatActivity {
             int languageCodeLength = payload[0] & 0063;
 
             // String languageCode = new String(payload, 1, languageCodeLength, "US-ASCII");
-            // e.g. "en"
-
             // Get the Text
             return new String(payload, languageCodeLength + 1, payload.length - languageCodeLength - 1, textEncoding);
         }
