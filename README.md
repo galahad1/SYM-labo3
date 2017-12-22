@@ -1,5 +1,6 @@
 # SYM-labo3
-Use of environemental data in an android application
 
-Autors: Tano Iannetta, Wojchiech Myszkorowski, Lara Chauffoureaux
+Auteurs: Tano Iannetta, Wojchiech Myszkorowski, Lara Chauffoureaux
 
+* Le dossier *rapport* contient les documents nécessaires pour le rapport (images, latex et pdf final)
+* Le dossier *application* contient le code source de l'application  
