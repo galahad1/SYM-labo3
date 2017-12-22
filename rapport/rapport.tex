@@ -179,28 +179,42 @@ Tout le code source de l'application est joint à ce rapport. Celui-ci est égal
 \url{https://github.com/galahad1/SYM-labo3}
 
 \section*{Question NFC}
-Nous allons calculer les probabilités qui nous sont demandé.
+
+Nous allons calculer les probabilités qui nous sont demandées.
+
 \begin{enumerate}
-\item Dans le cas ou il faut le MDP et la balise NFC, la probabilité est de 0.01 * 0.04 * 0.1 *0.001 = 0.000004 \% de chance de se produire 
-\item Dans le cas ou il faut soit l'un soit l'autre 0.01 * 0.04 * 0.1 + 0.01 * 0.001 * 0.1 = 0.00401 \% de chance de se produire.
-\item Dans le cas ou il faut juste la balise NFC, la probabilité est de 0.01 * 0.001 * 0.1  = 0.0001 \% chance de se produire
+\item Dans le cas d'un vol du mot de passe et de la balise NFC, la probabilité est de $0.01 * 0.04 * 0.1 *0.001 = 0.000004\%$ de chance que cela se produise.
+\medskip
 
-Pour calculer les cas ou le vol n'a pas lieu. Il faut tout simplement prendre la proabalité inverse 1-P(1.) par exemple.
+\item Dans le cas où il le vol concerne soit la balise NFC soit le mot de passe, cela a $(0.01 * 0.04 * 0.1) + (0.01 * 0.001 * 0.1) = 0.0041\%$ de chance de se produire.
+\medskip
 
-Maintenant si on applique les cas précédent à 100 personnes nous avons
-
-\item Dans le cas ou il faut le MDP et le NFC => (réponse 1 )\^100
-\item Dans le cas ou il faut soit le MDP soit le NFC => (réponse 2) \^100
-\item Dans le cas ou il faut juste la balise NFC => (réponse 3) \^100
+\item Dans le cas d'un vol de seulement la balise NFC, la probabilité est de $0.01 * 0.001 * 0.1  = 0.0001\%$ chance de se produire.
 \end{enumerate}
-On peut voir que l'utilisation de la balise NFC augmente la sécurité. Le risque est très faible dans tous les cas et peut être considéré comme quasiment nulle. En effet cette probabilité calculé précédemment s'applique à chaque collaborateur et peut être considéré comme étant minime. Le fait d'avoir deux facteurs d'authentification est toujours mieux qu'un, cela réduit la probabilité de vol de données.
 
-En revanche la perte de clé pour certaines personnes inattentive peut s’avérer très élevé et du coup peut bloquer l'utilisation du téléphone et donc empêcher la personne de pouvoir faire son travail. Dans le cas ou il est possible de choisir la façon de s'authentifier est plus user-friendly pour l'utilisateur. Mais le risque est supérieur et n'apporte rien au niveau sécurité. Cette possibilité ne devrait pas être disponible pour les utilisateurs.
 
-Le contrôle par le serveur peut être une bonne idée mais doit être bien géré car si on intercepte le trafic et qu'on récupère le hash alors la situation est critique car la personne n'a qu'a envoyé un hash et pourra s'authentifier. Au final cette option n'ajoute pas vraiment une sécurité supplémentaire pour l'entreprise.
-Un bonne optique serait de pouvoir bloquer les comptes lorsqu'un employé dit avoir perdu un des éléments critique (mot de passe, NFC, téléphone). Un sms ou un email pour pouvoir notifier l'incident.
+Pour calculer les cas où le vol n'a pas lieu. Il faut tout simplement prendre la probabilité inverse $1-P_1$ par exemple. \\
 
-L'authentification a double facteur est clairement recommandé pour une entreprise comme UBIQOMP SA. La mise en place de stockage à distance pour les éléments telle que mot de passe est aussi recommandé mais il faut savoir que cette opération qui peut s’avérer couteuse en ressources et argent. Une perte de connexion serai un inconvénient majeur. Une autre réalité est le fait d'avoir a savoir ou se trouve la balise NFC. La perte d'un élément comme le NFC peut s’avérer plus facile en pratique qu'en théorie pour une bonne partie des employées
+Maintenant si on applique les cas précédent à 100 personnes nous avons: 
+
+\begin{enumerate}[resume]
+\item Dans le cas où il faut le MDP et le NFC => $1-((1-P_1)^{100}) = 0.0039\%$
+\medskip
+
+\item Dans le cas où il faut soit le MDP soit le NFC => $1-((1-P_2)^{100}) = 0.4090\%$
+\medskip
+
+\item Dans le cas où il faut juste la balise NFC => $1-((1-P_3)^{100}) = 0.0099\%$
+\end{enumerate}
+
+On peut voir que l'utilisation de la balise NFC augmente la sécurité. Le risque est très faible dans tous les cas et peut être considéré comme quasiment nul. En effet, cette probabilité calculée précédemment s'applique à chaque collaborateur et peut être considérée comme étant minime. Le fait d'avoir deux facteurs d'authentification est toujours mieux qu'un, cela réduit la probabilité de vol de données.
+
+En revanche, la probabilité de perdre ses clés pour certaines personnes inattentives peut s'avérer très élevée et du coup peut bloquer l'utilisation du téléphone et donc empêcher la personne de pouvoir faire son travail. La possibilité de choisir la façon de s'authentifier (mot de passe \textbf{ou} NFC) peut sembler plus "user-friendly" pour l'utilisateur. Mais le risque est supérieur et n'apporte donc rien au niveau sécurité. A notre avis, cette possibilité ne devrait pas être disponible pour les utilisateurs.
+
+Le contrôle par le serveur peut être une bonne idée, mais doit être bien géré car si on intercepte le trafic et qu'on récupère le hash alors la situation est critique car une personne malicieuse n'a qu'à envoyer un hash récupérer et elle pourra s'authentifier. Au final cette option n'ajoute pas vraiment une sécurité supplémentaire pour l'entreprise.
+Un bonne optique serait de pouvoir bloquer les comptes lorsqu'un employé dit avoir perdu un des éléments critiques (mot de passe, NFC ou téléphone). Un sms ou un email envoyer par l'utilisateur permettrai de notifier l'entreprise de l'incident.
+
+L'authentification à double facteur est clairement recommandée pour une entreprise comme UBIQOMP SA. La mise en place de stockage à distance pour les éléments tels que mot de passe est aussi recommandée. Mais il faut savoir que cette opération peut s'avérer couteuse en ressources et argent. Une perte de connexion deviendrai aussi un inconvénient majeur. Une autre réalité est le fait d'avoir à savoir ou se trouve la balise NFC. La perte d'un élément comme le NFC peut survenir plus souvent en réalité qu'en théorie pour une bonne partie des employés.
 
 \section*{Question codes barre}
 
@@ -232,6 +246,7 @@ A contrario, intégrer la technologie NFC peut être coûteuse étant donné les
 
 D'un point de vue recyclage, le NFC est re-programmable pour une autre utilisation. Le code barre ne l'est pas!
 
+\clearpage
 \section*{Question beacon}
 
 Pour répondre à cette question, nous avons choisi d'analyser 3 cas d'utilisations différents.
