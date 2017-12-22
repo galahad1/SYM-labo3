@@ -179,6 +179,28 @@ Tout le code source de l'application est joint à ce rapport. Celui-ci est égal
 \url{https://github.com/galahad1/SYM-labo3}
 
 \section*{Question NFC}
+Nous allons calculer les probabilités qui nous sont demandé.
+\begin{enumerate}
+\item Dans le cas ou il faut le MDP et la balise NFC, la probabilité est de 0.01 * 0.04 * 0.1 *0.001 = 0.000004 \% de chance de se produire 
+\item Dans le cas ou il faut soit l'un soit l'autre 0.01 * 0.04 * 0.1 + 0.01 * 0.001 * 0.1 = 0.00401 \% de chance de se produire.
+\item Dans le cas ou il faut juste la balise NFC, la probabilité est de 0.01 * 0.001 * 0.1  = 0.0001 \% chance de se produire
+
+Pour calculer les cas ou le vol n'a pas lieu. Il faut tout simplement prendre la proabalité inverse 1-P(1.) par exemple.
+
+Maintenant si on applique les cas précédent à 100 personnes nous avons
+
+\item Dans le cas ou il faut le MDP et le NFC => (réponse 1 )\^100
+\item Dans le cas ou il faut soit le MDP soit le NFC => (réponse 2) \^100
+\item Dans le cas ou il faut juste la balise NFC => (réponse 3) \^100
+\end{enumerate}
+On peut voir que l'utilisation de la balise NFC augmente la sécurité. Le risque est très faible dans tous les cas et peut être considéré comme quasiment nulle. En effet cette probabilité calculé précédemment s'applique à chaque collaborateur et peut être considéré comme étant minime. Le fait d'avoir deux facteurs d'authentification est toujours mieux qu'un, cela réduit la probabilité de vol de données.
+
+En revanche la perte de clé pour certaines personnes inattentive peut s’avérer très élevé et du coup peut bloquer l'utilisation du téléphone et donc empêcher la personne de pouvoir faire son travail. Dans le cas ou il est possible de choisir la façon de s'authentifier est plus user-friendly pour l'utilisateur. Mais le risque est supérieur et n'apporte rien au niveau sécurité. Cette possibilité ne devrait pas être disponible pour les utilisateurs.
+
+Le contrôle par le serveur peut être une bonne idée mais doit être bien géré car si on intercepte le trafic et qu'on récupère le hash alors la situation est critique car la personne n'a qu'a envoyé un hash et pourra s'authentifier. Au final cette option n'ajoute pas vraiment une sécurité supplémentaire pour l'entreprise.
+Un bonne optique serait de pouvoir bloquer les comptes lorsqu'un employé dit avoir perdu un des éléments critique (mot de passe, NFC, téléphone). Un sms ou un email pour pouvoir notifier l'incident.
+
+L'authentification a double facteur est clairement recommandé pour une entreprise comme UBIQOMP SA. La mise en place de stockage à distance pour les éléments telle que mot de passe est aussi recommandé mais il faut savoir que cette opération qui peut s’avérer couteuse en ressources et argent. Une perte de connexion serai un inconvénient majeur. Une autre réalité est le fait d'avoir a savoir ou se trouve la balise NFC. La perte d'un élément comme le NFC peut s’avérer plus facile en pratique qu'en théorie pour une bonne partie des employées
 
 \section*{Question codes barre}
 
